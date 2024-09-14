@@ -24,7 +24,7 @@ public class ServerHandshakePacketListenerImplMixin {
 	@Shadow @Final
 	private Connection connection;
 
-	@Inject(method = "handleIntention", at = @At(value = "INVOKE", target = "Lnet/minecraft/network/Connection;setClientboundProtocolAfterHandshake(Lnet/minecraft/network/protocol/handshake/ClientIntent;)V", shift = At.Shift.AFTER, ordinal = 0), cancellable = true)
+	@Inject(method = "handleIntention", at = @At(value = "INVOKE", target = "Lnet/minecraft/network/Connection;setupOutboundProtocol(Lnet/minecraft/network/ProtocolInfo;)V", shift = At.Shift.AFTER, ordinal = 0), cancellable = true)
 	private void tryDisconnectPlayersIfModlistNotMatches(ClientIntentionPacket clientIntentionPacket, CallbackInfo ci) {
 		MutableComponent reason = null;
 		IPacketWithModIds packetWithModIds = (IPacketWithModIds)(Object)clientIntentionPacket;

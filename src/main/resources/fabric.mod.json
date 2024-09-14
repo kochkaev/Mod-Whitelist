@@ -6,10 +6,11 @@
   "description": "",
   "authors": [
     "Liu Dongyu",
-    "MangoMAOU"
+    "MangoMAOU",
+    "kochkaev"
   ],
   "contact": {
-    "repo": "https://github.com/Viola-Siemens/Mod-Whitelist/issues"
+    "repo": "https://github.com/kochkaev/Mod-Whitelist/"
   },
   "license": "MIT",
   "icon": "logo.png",
@@ -29,7 +30,7 @@
     "mod_whitelist.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.19",
-    "minecraft": ">=1.20.2 <1.21"
+    "fabricloader": ">=0.15.11",
+    "minecraft": ">=1.21"
   }
 }
