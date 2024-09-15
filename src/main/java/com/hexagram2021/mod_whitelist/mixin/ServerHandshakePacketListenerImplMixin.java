@@ -1,6 +1,7 @@
 package com.hexagram2021.mod_whitelist.mixin;
 
 import com.hexagram2021.mod_whitelist.common.network.IPacketWithModIds;
+import com.hexagram2021.mod_whitelist.common.utils.MWLogger;
 import com.hexagram2021.mod_whitelist.server.config.MWServerConfig;
 import com.hexagram2021.mod_whitelist.server.config.MismatchType;
 import net.minecraft.network.Connection;
@@ -24,8 +25,8 @@ public class ServerHandshakePacketListenerImplMixin {
 	@Shadow @Final
 	private Connection connection;
 
-	@Inject(method = "handleIntention", at = @At(value = "INVOKE", target = "Lnet/minecraft/network/Connection;setupOutboundProtocol(Lnet/minecraft/network/ProtocolInfo;)V", shift = At.Shift.AFTER, ordinal = 0), cancellable = true)
-	private void tryDisconnectPlayersIfModlistNotMatches(ClientIntentionPacket clientIntentionPacket, CallbackInfo ci) {
+	@Inject(method = "beginLogin", at = @At(value = "INVOKE", target = "Lnet/minecraft/network/Connection;setupInboundProtocol(Lnet/minecraft/network/ProtocolInfo;Lnet/minecraft/network/PacketListener;)V", shift = At.Shift.AFTER, ordinal = 0), cancellable = true)
+	private void tryDisconnectPlayersIfModlistNotMatches(ClientIntentionPacket clientIntentionPacket, boolean bl, CallbackInfo ci) {
 		MutableComponent reason = null;
 		IPacketWithModIds packetWithModIds = (IPacketWithModIds)(Object)clientIntentionPacket;
 		if(packetWithModIds.getModIds() != null) {
@@ -44,7 +45,6 @@ public class ServerHandshakePacketListenerImplMixin {
 		}
 
 		if(reason != null) {
-			this.connection.send(new ClientboundLoginDisconnectPacket(reason));
 			this.connection.disconnect(reason);
 			ci.cancel();
 		}
