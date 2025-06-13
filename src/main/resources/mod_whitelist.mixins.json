@@ -3,12 +3,8 @@
   "minVersion": "0.8",
   "package": "com.hexagram2021.mod_whitelist.mixin",
   "compatibilityLevel": "JAVA_17",
-  "mixins": [
-    "ClientIntentionPacketMixin",
-    "ServerHandshakePacketListenerImplMixin"
-  ],
-  "client": [
-  ],
+  "mixins": [],
+  "client": [],
   "injectors": {
     "defaultRequire": 1
   }

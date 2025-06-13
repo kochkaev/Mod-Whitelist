@@ -1,0 +1,9 @@
+{
+  "language": "Russian",
+  "language.code": "ru_ru",
+  "language.region": "Russian Federation",
+
+  "multiplayer.disconnect.mod_whitelist.modlist_mismatch": "Возникли несоответствия в списке установленных модов.\nСледуйте следующим действиям, или обратитесь за помощью к администратору:\n",
+  "multiplayer.disconnect.mod_whitelist.misc.to_install": "\nУстановите мод \"%s\".",
+  "multiplayer.disconnect.mod_whitelist.misc.to_uninstall": "\nУдалите мод \"%s\"."
+}

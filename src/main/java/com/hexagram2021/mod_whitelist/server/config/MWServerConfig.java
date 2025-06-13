@@ -171,6 +171,7 @@ public class MWServerConfig {
 			"mixinextras", MODID);
 	public static final ModIdListConfigValue CLIENT_MOD_BLACKLIST = new ModIdListConfigValue("CLIENT_MOD_BLACKLIST", "aristois", "bleachhack", "meteor-client", "wurst");
 
+
 	public static List<Pair<String, MismatchType>> test(List<String> mods) {
 		List<Pair<String, MismatchType>> ret = Lists.newArrayList();
 		for(String mod: CLIENT_MOD_NECESSARY.value()) {
