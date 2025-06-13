@@ -26,7 +26,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ModWhitelistServer implements DedicatedServerModInitializer {
 
 	private static final Map<UUID, AtomicInteger> pendingPlayers = new HashMap<>();
-	private static final int TIMEOUT_TICKS = 20;
+	private static final int TIMEOUT_TICKS = 100;
 	@Override
 	public void onInitializeServer() {
 		MWServerConfig.hello();
